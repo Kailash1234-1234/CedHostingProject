@@ -46,7 +46,7 @@ $(document).ready(function(){
 		if(email==''){
 			alert("Email required !!");
 		    return false;
-		} else if (password==''){
+		} else if (password=='') {
 			alert("password required !!");
 			return false;
 		} else {
@@ -55,13 +55,13 @@ $(document).ready(function(){
 				type : "POST",
 				data : {email:email, password:password, action:"login"},
 				success : function(data){
-					alert(data)
+					//alert(data)
 					if(data==1){
                       window.location.href="Admin/examples/dashboard.php";
                     } else if (data==2) {
                       window.location.href="index.php";
                     } else if(data==3){
-                       alert("You Are not Approved by admin  !!"); 
+                       alert("You Are not Approved by admin !!"); 
                     } else {
                       alert("Email or password Do not match try again !!"); 
                     }

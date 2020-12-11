@@ -14,12 +14,14 @@ switch($action){
         $password=$_POST["password"];
         $squestion=$_POST["squestion"];
         $sanswer=$_POST["sanswer"];
-       echo $newuser -> userRegistration($name, $email, $mobile, $password, $squestion, $sanswer, $conn);
+        echo $newuser -> userRegistration($name, $email, $mobile, $password, $squestion, $sanswer, $conn);
+    break;
     }
     case "login":{
         $email=$_POST["email"];
         $password=$_POST["password"];
         echo $newuser -> userLogin($email, $password, $conn);
+    break;
     }
 }
 

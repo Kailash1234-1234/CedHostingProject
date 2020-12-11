@@ -91,11 +91,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="<?php if ($menu=="services") { echo "active"; } ?>"><a href="services.php">Services</a></li>
 								<li class="dropdown <?php if ($menu=="linuxhosting" || $menu=="wordpresshosting" || $menu=="windowshosting" || $menu=="cmshosting") { echo "active"; } ?>">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
-									<ul class="dropdown-menu">
-										<li><a href="linuxhosting.php">Linux hosting</a></li>
-										<li><a href="wordpresshosting.php">WordPress Hosting</a></li>
-										<li><a href="windowshosting.php">Windows Hosting</a></li>
-										<li><a href="cmshosting.php">CMS Hosting</a></li>
+									<ul class="dropdown-menu" id="productcat">
+										
 									</ul>			
 								</li>
 								<li class="<?php if ($menu=="pricing") { echo "active"; } ?>"><a href="pricing.php">Pricing</a></li>
@@ -118,4 +115,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script>
 </script>		
 	<!---header--->
-	<!---header--->
+	<script>
+		$(document).ready(function(){
+		function loadcat(){
+			$.ajax({
+				url : "Admin/examples/adminAction.php",
+				type : "POST",
+				data : {action:"fetchalldatanav"},
+				dataType: "json",
+				success : function(data){
+					//	alert(data);
+						var html='';
+						for(var i=0;i<data.length;i++){
+							html+= '<li><a href="'+data[i][2]+'">'+data[i][1]+'</a></li>';
+						}
+						$("#productcat").html(html);
+				}
+			})
+			}
+			loadcat();
+		})
+	</script>

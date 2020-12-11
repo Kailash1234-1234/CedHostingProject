@@ -21,10 +21,53 @@ switch($action){
         echo $addcategory ->addproductcategory($pname, $purl, $pavail, $conn);
     break;
      }
-     case "fetchalldata":{
-         $addcategory ->fetchdata($conn);
+    case "fetchalldata":{
+        $addcategory ->fetchdata($conn);
+    break;
+    }
+    case "fetchalldatanav":{
+        $addcategory ->fetchdatanav($conn);
+       // print_r($addcategory);
+    break;
+    }
+    case "deletecat":{
+       $cid=$_POST['did'];
+       $addcategory ->deleteCategory($cid, $conn);
+    break;
+    }
+    case "editcat":{
+        $cid=$_POST['eid'];
+        $addcategory->editCategory($cid, $conn);
      break;
      }
+     case "updatecat":{
+        $cid=$_POST['eid'];
+        $pname=$_POST['pname'];
+        $purl= $_POST['purl'];
+        $pavail=$_POST['pavail'];
+        $addcategory->UpdateCategory($cid, $pname, $purl, $pavail, $conn);
+     break;
+     } 
+     case "addnewproduct":{
+        $cid=$_POST['pcategory']; 
+        $productname=$_POST['productname'];
+        $producturl=$_POST['producturl'];
+        $monthlyprice=$_POST['monthlyprice'];
+        $annualyprice=$_POST['annualyprice'];
+        $skuid=$_POST['skuid'];
+        $webspace=$_POST['webspace'];
+        $bandwidth=$_POST['bandwidth'];
+        $freedomain=$_POST['freedomain'];
+        $technology=$_POST['technology'];
+        $mailbox=$_POST['mailbox'];
+
+        $product_desc = array("webspace" => $webspace, "bandwidth" => $bandwidth, "freedomain" => $freedomain, "technology" => $technology, "mailbox" => $mailbox);
+        $product_desc_json=json_encode($product_desc);
+        $result = $addcategory->addnewProduct($cid, $productname, $producturl, $monthlyprice, $annualyprice, $skuid, $product_desc_json, $conn);
+        echo ($result);
+     break;
+     }
+     
     
 }
 

@@ -44,11 +44,11 @@
       <!-- Brand -->
       <div class="sidenav-header  align-items-center">
         <a class="navbar-brand" href="javascript:void(0)">
-         <h1> <span class="l1"> Ced</span>  <span class="l2">Hosting</span></h1>
+         <h1> <img src="../../images/logo.png" style="height:70px;width:70px" alt=""><br> <span class="l1"> Ced</span>  <span class="l2">Hosting</span></h1>
           
         </a>
       </div>
-      <div class="navbar-inner">
+      <div class="navbar-inner  mt-5">
         <!-- Collapse -->
         <div class="collapse navbar-collapse" id="sidenav-collapse-main">
           <!-- Nav items -->
@@ -73,7 +73,7 @@
                       <a class="nav-link" href="add_new_product.php">Add Product</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="userallrides.php">View Product</a>
+                      <a class="nav-link" href="view_all_product.php">View Product</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="userallrides.php">Create New Offers</a>

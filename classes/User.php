@@ -31,7 +31,7 @@ class User{
         $query = "SELECT * FROM tbl_user where `email` ='".$email."' AND `password` = '".$password."'"; 
         if ($result=mysqli_query($conn, $query)) {
             while ($row=mysqli_fetch_assoc($result)) {
-                if ($row['email_approved']==1) {
+                if ($row['active']==1) {
                     $_SESSION['email']=$row['email'];
                     $_SESSION['name']=$row['name'];
                     // $_SESSION['dos']=$row['date_of_signup'];

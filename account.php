@@ -1,4 +1,4 @@
-<?php if ($menu="login"); ?>
+<?php if($menu="login"); ?>
 <?php require_once 'header.php'; ?>
 
 		<!---login--->
@@ -137,7 +137,9 @@ $(document).ready(function(){
 							type : "POST",
 							data : {name:name, email:email, mobile:mobile, password:password, squestion:squestion, sanswer:sanswer, action:"register"},
 							success : function(data){
-								alert("ha "+data);
+								if(data==1){
+									alert("Successfully Registered !! ")
+								}
 							}
 						})
 					}

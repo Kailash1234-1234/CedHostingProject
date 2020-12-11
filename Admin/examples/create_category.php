@@ -86,12 +86,8 @@
       </div>
     </div>
   <!-- create category update modal  -->
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updatecategory">
-  Launch demo modal
-</button>
 
-<!-- Modal -->
+<!-- update category Modal -->
 <div class="modal fade" id="updatecategory" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -105,61 +101,16 @@
               <div class="text-center mt-3">
                 <a href="#" class="btn btn-neutral btn-icon mr-4">
                   <span class="btn-inner--icon"> <i class="ni ni-planet text-orange"></i></span>
-                  <span class="btn-inner--text">Create Category Here !!</span>
+                  <span class="btn-inner--text">Update Category Here !!</span>
                 </a>
-               
               </div>
             </div>
-            <div class="card-body px-lg-5 py-lg-5">
-              <form role="form" id="categoryform">
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                    </div>
-                    <input class="form-control" disabled type="text" id="productcat" value="" >
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="Product Name" type="text" id='productname'>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                    </div>
-                    <input class="form-control" placeholder="URL (Optional)" type="text" id=producturl>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="input-group input-group-merge input-group-alternative">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                    </div>
-                    <!-- <input class="form-control" placeholder="Select category" type="text"> -->
-                    <select name="availvility" id="available">
-                        <option value="0">Not Available</option>
-                        <option value="1"> Available</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="text-center">
-                  <button type="button" class="btn btn-primary mt-4" id="createcatbtn">Create Category</button>
-                </div>
-              </form>
+            <div class="card-body px-lg-5 py-lg-5 " id="updatecat1">
+            
             </div>
           </div>
         </div>
       </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
@@ -168,18 +119,16 @@
     <div class="container-fluid">
     <table id="example" class="display table" cellspacing="0">
     <thead>
-        <tr class="bg-success text-white">
+        <tr class="bg-primary text-white">
             <th>Id </th>
-            <th>Product Parent Id</th>
             <th>Product Name</th>
             <th>Link</th>
+            <th>Availbility</th>
             <th>Product Luanch Date </th>
             <th>Action </th>
         </tr>
     </thead>
     </table>
-
-
 </div>
 <div class="container">
 <?php require_once 'footer.php'; ?>    
@@ -237,16 +186,106 @@
                "ajax":'action.php'
         });
 
-        // $("#example").on("click", ".editbtn", function(){
-           
-        //     var eid=$(this).data("eid");
-        //     alert("hello i am edit"+eid);
-        // })
+         $(document).on("click", "#updatecatbtn", function(){
+            var eid=$(this).data("upid");
+            var pname=$("#productname1").val();
+            var purl=$("#link1").val();
+            var pavail=$("#available1").val();
+            if(pname==""){
+              alert("Category Name Is required");
+            } else if (pavail==''){
+              alert("please select  Availbility ");
+            }
+            $.ajax({
+              url : "adminAction.php",
+              type : "POST",
+              dataType: "json",
+              data : {eid:eid, pname:pname, purl:purl, pavail:pavail, action:"updatecat"},
+              success : function(data){
+               
+                if(data==1){
+                  alert("success fully updated Category !!");
+                  location.reload();
+                } else {
+                  alert("Not updated Some thing went wrong !!");
+                }
+              }
+            })
+         });
+
+        $("#example").on("click", ".editbtn", function(){
+            var eid=$(this).data("eid");
+            //alert("hello i am edit"+eid);
+            $.ajax({
+              url : "adminAction.php",
+              type : "POST",
+              dataType: "json",
+              data : {eid:eid, action:"editcat"},
+              success : function(data){
+                //alert(data)
+                $("#updatecat1").html('<form role="form" id="updatecat11">'+
+                '<div class="form-group">'+
+                  '<div class="input-group input-group-merge input-group-alternative mb-3">'+
+                    '<input class="form-control text-center" disabled type="text"  value="HOSTING" >'+
+                  '</div>'+
+                '</div>'+
+                '<div class="form-group">'+
+                  '<div class="input-group input-group-merge input-group-alternative mb-3">'+
+                    '<div class="input-group-prepend">'+
+                      '<span class="input-group-text"><i class="ni ni-hat-3"></i></span>'+
+                    '</div>'+
+                    '<input class="form-control"  type="text" id="productname1" value="'+data['prod_name']+'" >'+
+                  '</div>'+
+                '</div>'+
+                '<div class="form-group">'+
+                  '<div class="input-group input-group-merge input-group-alternative mb-3">'+
+                    '<div class="input-group-prepend">'+
+                     ' <span class="input-group-text"><i class="ni ni-email-83"></i></span>'+
+                   '</div>'+
+                    '<input class="form-control" type="text" id="link1" value="'+data['link']+'" >'+
+                  '</div>'+                                                                             
+                '</div>'+
+                '<div class="form-group">'+
+                  '<div class="input-group input-group-merge input-group-alternative">'+
+                    '<div class="input-group-prepend">'+
+                      '<span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>'+
+                      '<select  name="availvility" id="available1">'+
+                       '<option class="category" value="">Select Availbility</option>'+
+                       '<option value="0">Not Available</option>'+
+                        '<option value="1"> Available</option>'+
+                    '</select>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>'+
+                '<div class="text-center">'+
+                  '<button type="button" class="btn btn-primary mt-4" data-upid="'+data['id']+'" id="updatecatbtn">Update Category</button>'+
+                  '<button type="button" class="btn btn-danger mt-4" data-dismiss="modal">Close</button>'+
+                '</div>'+
+              '</form>')
+              }
+            })
+        })
 
         $("#example").on("click", ".deletebtn", function(){
+          if(confirm("Are you Sure To delete This Category ??")){
             var did=$(this).data("did");
-            alert("hello i am delete"+did);
+            $.ajax({
+              url : "adminAction.php",
+              type : "POST",
+              data : {did:did, action:"deletecat"},
+              success : function(data){
+                if(data==1){
+                alert("Successfully Deleted !!");
+                location.reload();
+                loadcat()
+                } else {
+                  alert(" not  Deleted, Something went wrong!!"); 
+                }
+              }
+            })
+          }
         })
+        
     })
 </script>
 
