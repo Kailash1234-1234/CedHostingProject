@@ -1,6 +1,6 @@
 <?php
-require_once 'Dbcon.php';
-require_once 'User.php';
+require_once 'classes/Dbcon.php';
+require_once 'classes/User.php';
 $conn=new Dbcon();
 $conn=$conn->createConnection();
 $newuser=new User();
@@ -15,8 +15,12 @@ switch($action){
         $squestion=$_POST["squestion"];
         $sanswer=$_POST["sanswer"];
        echo $newuser -> userRegistration($name, $email, $mobile, $password, $squestion, $sanswer, $conn);
-
-        }
+    }
+    case "login":{
+        $email=$_POST["email"];
+        $password=$_POST["password"];
+        echo $newuser -> userLogin($email, $password, $conn);
+    }
 }
 
 ?>

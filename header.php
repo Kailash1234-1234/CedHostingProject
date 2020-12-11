@@ -4,6 +4,12 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 -->
+<?php 
+session_start(); 
+if (isset($_SESSION["email"])) { 
+    $email = $_SESSION["email"];
+}
+?>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -20,6 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!---fonts-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src='https://kit.fontawesome.com/a076d05399.js'></script>
 <link href='//fonts.googleapis.com/css?family=Voltaire' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <!---fonts-->
@@ -94,8 +101,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li class="<?php if ($menu=="pricing") { echo "active"; } ?>"><a href="pricing.php">Pricing</a></li>
 								<li class="<?php if ($menu=="blog") { echo "active"; } ?>"><a href="blog.php">Blog</a></li>
 								<li class="<?php if ($menu=="contact") { echo "active"; } ?>"><a href="contact.php">Contact</a></li>
-								<li class="<?php if ($menu=="cart") { echo "active"; } ?>"><a href="cart.php"><i class="fa fa-shopping-cart " style="font-size:23px"></i></a></li>
-								<li class="<?php if ($menu=="login") { echo "active"; } ?>"><a href="login.php">Login</a></li>
+								<li class="<?php if ($menu=="cart") { echo "active"; } ?>"><a href="cart.php"><i class='fas fa-cart-plus' style='font-size:20px'></i></a></li>
+								<?php if (isset($_SESSION['email'])) { ?>
+									<li class="<?php if ($menu=="login") { echo "active"; } ?>"><a href="logout.php">Logout</a></li>
+								<?php } else { ?>
+									<li class="<?php if ($menu=="login") { echo "active"; } ?>"><a href="login.php">Login</a></li>
+								<?php } ?>
 							</ul>
 									  
 						</div><!-- /.navbar-collapse -->

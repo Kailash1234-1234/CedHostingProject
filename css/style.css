@@ -1507,7 +1507,7 @@ a.button4:hover {
 	display: inline-block;
 	text-transform: capitalize;
 }
-.acount-btn:hover, .login-right input[type="submit"]:hover{
+.acount-btn:hover, .login-right input[type="button"]:hover{
 	background:#7277d5;
 	text-decoration:none;
 	color:#fff;
@@ -1532,7 +1532,7 @@ a.button4:hover {
 	font-size:0.8125em;
 	padding: 0.5em;
 }
-.login-right input[type="submit"] {
+.login-right input[type="button"] {
 	background: #e7663f;
 	color: #FFF;
 	font-size: 1em;

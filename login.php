@@ -17,15 +17,16 @@
 									<form>
 									  <div>
 										<span>Email Address<label>*</label></span>
-										<input type="text"> 
+										<input type="text" id="email"> 
 									  </div>
 									  <div>
 										<span>Password<label>*</label></span>
-										<input type="password"> 
+										<input type="password" id="password"> 
 									  </div>
 									  <a class="forgot" href="#">Forgot Your Password?</a>
-									  <input type="submit" value="Login">
+									  <input type="button" value="Login" id="submit" >
 									</form>
+									
 								</div>	
 								<div class="clearfix"> </div>
 							</div>
@@ -34,5 +35,44 @@
 				</div>
 			</div>
 <!-- login -->
+<script>
+$(document).ready(function(){
+	
+	
+    $("#submit").on("click", function(e){
+		// e.perventDefault();
+		var email=$("#email").val();
+	    var password = $("#password").val();
+		if(email==''){
+			alert("Email required !!");
+		    return false;
+		} else if (password==''){
+			alert("password required !!");
+			return false;
+		} else {
+			$.ajax({
+				url : "useraction.php",
+				type : "POST",
+				data : {email:email, password:password, action:"login"},
+				success : function(data){
+					alert(data)
+					if(data==1){
+                      window.location.href="Admin/examples/dashboard.php";
+                    } else if (data==2) {
+                      window.location.href="index.php";
+                    } else if(data==3){
+                       alert("You Are not Approved by admin  !!"); 
+                    } else {
+                      alert("Email or password Do not match try again !!"); 
+                    }
+				}
+			})
+		}
+	})
+	
+
+})
+
+</script>
 				<!---footer--->
 				<?php require_once 'footer.php'; ?>

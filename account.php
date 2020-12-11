@@ -88,44 +88,62 @@ $(document).ready(function(){
                 }
 	$("#register").on("click", function(e){
 		e.preventDefault();
-		var name=$("#name").val();
-		var email=$("#email").val();
-		var mobile=$("#mobile").val();
-		var password= $("#password").val();
-		var cpassword=$("#cpassword").val();
+		var name=$("#name").val().trim();
+		var email=$("#email").val().trim();
+		var mobile=$("#mobile").val().trim();
+		var password= $("#password").val().trim();
+		var cpassword=$("#cpassword").val().trim();
 		var squestion=$("#squestion").val();
-		var sanswer=$("#sanswer").val();
+		var sanswer=$("#sanswer").val().trim();
+
+		var letter = /^([a-zA-Z]+\s?)*$/;
+		var ansletter = /^([a-zA-Z0-9]+\s?)*$/;
+        var pattern = /^(0|[+91]{3})?[7-9][0-9]{9}$/;
+        var pattemail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
+        var pattpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+        var intRegexpass = /[0-9 -()+]+$/; 
 		if(name=="" || email=="" || mobile==""  || password=="" || cpassword=="" || squestion=="" || sanswer==""){
 			alert("all fields are required !!")
-		} else {
-			intRegex = /[0-9 -()+]+$/;
-            if((mobile.length <= 9) || (mobile.length > 11) || (!intRegex.test(mobile)))
-            {
+			return false;
+		} else  if(!(name.match(letter))) {
+				alert("Enter Valid Name");
+				return false;
+		} else  if(!(email.match(pattemail))) {
+				alert("Enter Valid Email");
+				return false;
+		} else  if(!(mobile.match(pattern))) {
+				alert("invalid mobile number");
+				return false;
+		} else if((mobile.length <= 9) || (mobile.length > 11) ) {
                 alert('Please enter 10 digit phone number.');
                 return false;
-            } else {
-		        if(password != cpassword){
+			
+        } else if (!(password.match(pattpass))) {
+				alert("Enter Strong Password");
+				return false;
+		} else if(password != cpassword) {
 			    alert("Password mismstch !!");
 			     return false;
-		       	} else {
-			      	intRegexpass = /[0-9 -()+]+$/;
-					if((password.length <= 8) || (password.length > 50) || (!intRegexpass.test(password)))
-					{
-						alert('password must be 8 digit long.');
-						return false;
-					} else{
+				 
+		} else if((password.length <= 2) || (password.length > 50) || (!intRegexpass.test(password))){
+					alert('password must be 8 digit long.');
+					return false;
+		}else  if(!(sanswer.match(ansletter))) {
+				alert("Enter Valid Security Answer !!");
+				return false;
+		} else {
 						$.ajax({
 							url : "useraction.php",
 							type : "POST",
 							data : {name:name, email:email, mobile:mobile, password:password, squestion:squestion, sanswer:sanswer, action:"register"},
 							success : function(data){
-								alert(data);
+								alert("ha "+data);
 							}
 						})
 					}
-				}
-			}
-		}
+				
+			
+		
 	})
 
 })
