@@ -35,7 +35,7 @@ class Product
     function fetchdata($conn) 
     {
         $data=array();
-        $sql="SELECT * FROM tbl_product WHERE `id`!='1'";
+        $sql="SELECT * FROM tbl_product WHERE `id`!='1' AND `prod_parent_id`='1'";
         $result =  mysqli_query($conn, $sql);
         while ($row=mysqli_fetch_assoc($result)) {
             $available=0;
@@ -54,18 +54,30 @@ class Product
     {
         $data=array();
         //$sql="SELECT * FROM tbl_product WHERE `id`!='1'";
-        $sqlquery="SELECT * FROM `tbl_product` INNER JOIN `tbl_product_description` ON `tbl_product`.`id` = `tbl_product_description`.`prod_id`";
+        $sqlquery="SELECT `tbl_product`.*, `tbl_product_description`.* FROM `tbl_product` INNER JOIN `tbl_product_description` ON `tbl_product`.`id` = `tbl_product_description`.`prod_id`";
         $result =  mysqli_query($conn, $sqlquery);
-        $arrdesc=array();
+       
         while ($row=mysqli_fetch_assoc($result)) {
-            $arrdesc=json_decode($row['description']);
+            $mid= $row['prod_parent_id'];
+            $sql_selectparent_name = "SELECT `prod_name` FROM `tbl_product` where `id`='$mid'";
+            $result1 =  mysqli_query($conn, $sql_selectparent_name);
+            $GLOBALS['$productnamemain']='';
+            while ($row1=mysqli_fetch_assoc($result1)) {
+                 $GLOBALS['$productnamemain'] = $row1['prod_name'];
+            }
+            $product_desc=json_decode($row['description']);
+            $webspace=$product_desc->{'webspace'};
+            $bandwidth=$product_desc->{'bandwidth'};
+            $freedomain=$product_desc->{'freedomain'};
+            $technology=$product_desc->{'technology'};
+            $mailbox=$product_desc->{'mailbox'};
             $available=0;
             if ($row['prod_available']==1) {
                 $available="Available";
             } else {
                 $available="Un-Available";
             }
-            $data['data'][] = array($row['id'],  $row['prod_name'], $row['link'], $available, $row['description'], $row['mon_price'], $row['annual_price'], $row['sku'], $row['prod_launch_date'], '<input type="button" class="btn btn-primary editbtn"  data-toggle="modal" data-target="#updatecategory" value="Edit" data-eid="'.$row['id'].'" > <input class="btn btn-danger bg-orange deletebtn" type="button" value="delete" data-did="'.$row['id'].'">');
+            $data['data'][] = array($row['id'], $row['prod_id'], $GLOBALS['$productnamemain'], $row['prod_name'], $row['link'], $available, $webspace, $bandwidth, $freedomain, $technology, $mailbox, $row['mon_price'], $row['annual_price'], $row['sku'], $row['prod_launch_date'], '<input type="button" class="btn btn-primary editbtn"  data-toggle="modal" data-target="#updatecategory" value="Edit" data-eid="'.$row['prod_id'].'" > <input class="btn btn-danger bg-orange deletebtn" type="button" value="delete" data-did="'.$row['prod_id'].'">');
         }
         print_r(json_encode($data));
     }
@@ -126,6 +138,18 @@ class Product
             return 1;
         } else {
             return 0;
+        }
+    }
+
+    function deleteProductTabledata($cid, $conn){
+       $deletesql="DELETE `tbl_product`, `tbl_product_description`
+        FROM `tbl_product`
+        INNER JOIN `tbl_product_description` ON `tbl_product`.`id` = `tbl_product_description`.`prod_id`
+        WHERE `prod_id`=$cid";
+        if (mysqli_query($conn, $deletesql)) {
+            echo 1;
+        } else {
+            echo 0;
         }
     }
 }

@@ -33,14 +33,23 @@
             <div class="card-header bg-transparent pb-2 text-center ">
               <h1 class="text-primary">Product Details</h1>
             </div>
-                <table id="example" class="display table" cellspacing="0">
+            <div class="table-responsive">
+
+           
+                <table id="example" class="table table-responsive">
                     <thead>
                         <tr class="bg-primary text-white">
                             <th>Id </th>
+                            <th>prod Id </th>
+                            <th>Product Category </th>
                             <th>Product Name</th>
                             <th>Link</th>
                             <th>Availbility</th>
-                            <th>Description</th>
+                            <th>Web Space</th>
+                            <th>Band width</th>
+                            <th>freedomain</th>
+                            <th>Technology</th>
+                            <th>MAIl BOX</th>
                             <th>Monthly price</th>
                             <th>Annualy price</th>
                             <th>SKU ID</th>
@@ -50,6 +59,7 @@
                     </thead>
                    
                 </table>
+                </div>
           </div>
         </div>
       </div> 
@@ -66,6 +76,29 @@
             $("#example").DataTable({
                "ajax":'viewallproductaction.php'
         });
+       
+       $(document).on("click",".editbtn", function(e){
+          e.preventDefault();
+          var eid=$(this).data("eid");
+          alert("i am edit product"+eid);
+       })
+
+       $(document).on("click",".deletebtn", function(e){
+          e.preventDefault();
+          if(confirm("Are You Sure to delete this product ??")){
+          var did=$(this).data("did");
+          alert("i am edit product"+did);
+          $.ajax({
+            url : "adminAction.php",
+            type : "POST",
+            data : {did:did, action:"deleteproduct"},
+            success : function(data){
+              alert(data);
+            }
+          })
+          }
+       })
+
         })
         
     </script>

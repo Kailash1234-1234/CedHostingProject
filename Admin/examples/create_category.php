@@ -46,6 +46,7 @@
                     </div>
                     <input class="form-control" disabled type="text" id="productcat" value="" >
                   </div>
+                  <span class="pcat" >invalid cridentials</span>
                 </div>
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -54,6 +55,7 @@
                     </div>
                     <input class="form-control" placeholder="Product Name" type="text" id='productname'>
                   </div>
+                  <span class="pname" >invalid cridentials</span>
                 </div>
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
@@ -75,6 +77,7 @@
 
                     </select>
                   </div>
+                  <span class="avail" >invalid cridentials</span>
                 </div>
                 <div class="text-center">
                   <button type="button" class="btn btn-primary mt-4" id="createcatbtn">Create Category</button>
@@ -156,6 +159,59 @@
            })
         }
         loadcat();
+        
+
+//validation add product form
+        // product name validate
+        $("#createcatbtn").hide();
+           $(".pcat").hide();
+           $(".pname").hide();
+           $(".avail").hide();
+           var pname=$("#productname").val();
+            var purl=$("#producturl").val();
+            var pavail=$("#available").val();
+           $("#productname").focusout(function() {
+              product_name();
+           })
+           function product_name(){
+            var pname=$("#productname").val();
+            var ansletter = /^([a-zA-Z_0-9]+\s?)*$/;
+            if(pname.length==''){
+              $(".pname").show();
+              $(".pname").focus();
+              $(".pname").html("** Please enter Product name");
+              $("#createcatbtn").hide();
+              return false;
+            } else if(!pname.match(ansletter)){
+              $(".pname").show();
+              $(".pname").focus();
+              $(".pname").html("** Please enter valid product name Ex: Windows hosting");
+              $("#createcatbtn").hide();
+            } else{
+              $(".pname").hide();
+              $("#createcatbtn").show();
+            }
+            } 
+            
+            $("#mprice").focusout(function() {
+              product_avil(); 
+             })
+
+            function product_avil() {
+                 var pavail=$("#available").val();
+                var regex = /^[0-9-+()]*$/;
+                if(pavail.length==''){
+                $(".avail").show();
+                $(".avail").focus();
+                $(".avail").html("** Please Select Availbility");
+                $("#createproductbtn").hide();
+                } else {
+                  $(".avail").hide();
+                 
+                  $("#createcatbtn").show();
+                }
+               
+            }
 
         $("#createcatbtn").on("click", function(e){
             e.preventDefault();

@@ -8,5 +8,6 @@ $conn=$conn->createConnection();
 $newuser=new User();
 $addcategory=new Product();
 $addcategory ->fetchdatawithproductdesc($conn);
+//echo "<script>console.log(".$addcategory.")</script>";
 ?>
  

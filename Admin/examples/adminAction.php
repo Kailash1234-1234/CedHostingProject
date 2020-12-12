@@ -67,6 +67,11 @@ switch($action){
         echo ($result);
      break;
      }
+     case "deleteproduct":{
+      $cid=$_POST['did'];
+      $addcategory->deleteProductTabledata($cid, $conn);
+     break;
+    }
      
     
 }
