@@ -1,4 +1,16 @@
-<?php require_once 'header.php'; ?>
+<?php
+/**
+ * Templet File Doc Comment
+ * 
+ * PHP version /
+ * 
+ * @category Tenplete_Class
+ * @package  Templete_Class
+ * @author   Author <author@domain.com>
+ * @license  http://opensource.org/MIT MIT License
+ * @link     http://localhost/
+ */
+require_once 'header.php'; ?>
     <!-- Header -->
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
@@ -8,7 +20,7 @@
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"> <i class="ni ni-planet text-orange"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Prosucts </a></li>
+                  <li class="breadcrumb-item"><a href="#">Products </a></li>
                   <li class="breadcrumb-item active" aria-current="page">Add Products</li>
                 </ol>
               </nav>
@@ -43,10 +55,10 @@
               <form role="form" id="categoryform">
                 <h1>  Create New Product</h1>
                 <p>Enter Product Details</p>
-                <span class="text-danger"> Note : All Fields Are Required (*)</span>
+                <span class="text-danger"> Note : All fields are required (*)</span>
                 <div style="height:2px; width:100%;margin-bottom:30px; background-color:#ccc"></div>   
             <div class="form-group">
-              <label for="available"> Select Product Category <span>*</span></label>
+              <label for="available"> Select product category <span>*</span></label>
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class='fas fa-cloud'></i></span>
@@ -55,15 +67,15 @@
                        
                     </select>
                   </div>
-                  <span class="pcat"> Please Chose category</span>
+                  <span class="pcat"> Please choose product category</span>
                 </div>
                 <div class="form-group">
-                <label for="available"> Enter Product Name <span>*</span></label>
+                <label for="available"> Enter product name <span>*</span></label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class='fas fa-cloud-sun'></i></span>
                     </div>
-                    <input class="form-control" type="text" id="productname" value="" >
+                    <input class="form-control" type="text" id="productname" placeholder="Ex : Ced Hosting" >
                   </div>
                   <span class="pname" >invalid product name</span>
                 </div>
@@ -73,36 +85,36 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class='fas fa-cookie'></i></span>
                     </div>
-                    <input class="form-control" placeholder="Product Name" type="text" id='purl'>
+                    <input class="form-control" placeholder="http:www.google.com" type="text" id="producturl">
                   </div>
                   <!-- <span class="purl" >invalid product name</span> -->
                 </div>
 
-                <h1>Product Description </h1>
-                <p>Enter Product Description Below</p>
+                <h1>Product description </h1>
+                <p>Enter product description below</p>
                 <div style="height:2px; width:100%;margin-bottom:30px; background-color:#ccc"></div>
               
                 <div class="form-group">
-                <label for="available"> Enter Monthly Price  <span>*</span></label>
+                <label for="available"> Enter monthly price  <span>*</span></label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class='fas fa-dollar-sign'></i></span>
                     </div>
-                    <input class="form-control" placeholder="Ex : 23" type="text" id="mprice">
+                    <input class="form-control" maxlength="5" placeholder="Ex : 23" type="text" id="mprice">
                   </div>
                   <span class="mp" >invalid cridentials</span>
                   <h5>this shuld be monthly plan</h5>
                 </div>
                 <div class="form-group">
-                <label for="available"> Enter Annual Price <span>*</span></label>
+                <label for="available"> Enter annual price <span>*</span></label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class='fab fa-btc'></i></span>
                     </div>
-                    <input class="form-control" placeholder="Ex : 23" type="text" id="aprice">
+                    <input class="form-control" maxlength="5" placeholder="Ex : 23" type="text" id="aprice">
                   </div>
                   <span class="ap" >invalid cridentials</span>
-                  <h5>This would be Annual Price</h5>
+                  <h5>This would be annual price</h5>
                 </div>
                 <div class="form-group">
                 <label for="available"> SKU <span>*</span></label>
@@ -110,7 +122,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class='fas fa-key'></i></span>
                     </div>
-                    <input class="form-control" type="text" id="skuid">
+                    <input class="form-control" type="text"  id="skuid">
                   </div>
                   <span class="sku" >invalid cridentials</span>
                 </div>
@@ -119,7 +131,7 @@
                 <div style="height:2px; width:100%;margin-bottom:30px; background-color:#ccc"></div>
 
                 <div class="form-group">
-                <label for="available"> Web Space (in GB) <span>*</span></label>
+                <label for="available"> Web space (in GB) <span>*</span></label>
                 <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                     <span class="input-group-text"><i class='fas fa-fire'></i></span>
@@ -142,18 +154,18 @@
                 <h5>Enter 0.5 for 512 MB</h5>
                 </div>
                 <div class="form-group">
-                <label for="available"> Free Domain <span>*</span></label>
+                <label for="available"> Free domain <span>*</span></label>
                 <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                     <span class="input-group-text"><i class='fas fa-globe'></i></span>
                     </div>
-                    <input class="form-control" type="text" id="fdomain">
+                    <input class="form-control" maxlength="3" type="text" id="fdomain">
                 </div>
                 <span class="fd" >invalid cridentials</span>
                 <h5>Enter 0 if no domain avilable in this service</h5>
                 </div>
                 <div class="form-group">
-                <label for="available"> Language/Technology Support <span>*</span></label>
+                <label for="available"> Language/Technology support <span>*</span></label>
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class='fas fa-code'></i></span>
@@ -169,13 +181,13 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" type="text" id="mailbox">
+                    <input class="form-control" maxlength="3" type="text" id="mailbox">
                   </div>
                   <span class="mb" >invalid cridentials</span>
                 <h5>Enter Number of mailbox will be provided, 0 if none </h5>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-success mt-4" id="createproductbtn">Create Now</button>
+                  <button type="button" class="btn btn-success mt-4" id="createproductbtn">Create now</button>
                 </div>
               </form>
             </div>
@@ -185,10 +197,11 @@
     </div>
 </div>
   <div class="container">
-  <?php require_once 'footer.php'; ?>     
+<?php require_once 'footer.php'; ?>     
 </div>  
   <script>
     $(document).ready(function(){
+      debugger;
       function loadcat(){
         $.ajax({
           url : "adminAction.php",
@@ -196,7 +209,6 @@
           data : {action:"fetchalldatanav"},
           dataType: "json",
           success : function(data){
-            
               var html='<option value="">Chose Cetegory Here..</option>';
               for(var i=0;i<data.length;i++){
                 html+= '<option value="'+data[i][0]+'">'+data[i][1]+'</option>';
@@ -207,7 +219,7 @@
         }
         loadcat();
 
-//validation add product form
+        //validation add product form
         // product name validate
         $("#createproductbtn").hide();
            $(".pname").hide();
@@ -220,24 +232,46 @@
            $(".fd").hide();
            $(".sku").hide();
            $(".pcat").hide();
+
            var pcategory=$("#productcat").val();
+            // product category validate 
+            $("#productcat").focusout(function(){
+                cat_validate();
+            });
+            function cat_validate(){
+            var pcat=$("#productcat").val();
+            if(pcat.length==''){
+                $(".pcat").show();
+                $(".pcat").focus();
+                $(".pcat").html("** Please choose  product category ");
+                $("#createproductbtn").hide();
+                } else  {
+                  $(".pcat").hide();
+                 // $("#createproductbtn").show();
+                  product_name();
+                }
+            }
+
            $("#productname").focusout(function() {
               product_name();
            })
            function product_name(){
             var pname=$("#productname").val();
-            var ansletter = /^([a-zA-Z_0-9]+\s?)*$/;
+            var ansletter = /(^([a-zA-Z]+\-[0-9]+$))|(^([a-zA-Z])+$)/;
             if(pname.length==''){
               $(".pname").show();
               $(".pname").focus();
-              $(".pname").html("** Please enter Product name");
+              $(".pname").html("** Please enter product name");
+              $("#productname").focus();
               $("#createproductbtn").hide();
               return false;
             } else if(!pname.match(ansletter)){
               $(".pname").show();
               $(".pname").focus();
-              $(".pname").html("** Please enter valid product name Ex: Windows hosting");
+              $(".pname").html("** Please enter valid product name Ex: Windows Hosting");
+              $("#productname").focus();
               $("#createproductbtn").hide();
+              return false;
             } else{
               $(".pname").hide();
               product_m_price();
@@ -251,17 +285,21 @@
 
             function product_m_price() {
                 var monthlyprice=$("#mprice").val();
-                var regex = /^[0-9-+()]*$/;
+                var monthregex = /^([0-9]+\.[0-9]+$)|(^([0-9])+$)/;
                 if(monthlyprice.length==''){
                 $(".mp").show();
                 $(".mp").focus();
                 $(".mp").html("** Please enter  monthly price");
                 $("#createproductbtn").hide();
-                } else if(!monthlyprice.match(regex)){
+                $("#mprice").focus();
+                return false;
+                } else if(!monthlyprice.match(monthregex)){
                 $(".mp").show();
                 $(".mp").focus();
-                $(".mp").html("** Please enter valid monthly price Ex: 120.00");
+                $(".mp").html("** Please enter valid monthly price Ex: 120");
                 $("#createproductbtn").hide();
+                $("#mprice").focus();
+                return false;
                 } else {
                   $(".mp").hide();
                   product_a_price();
@@ -276,17 +314,21 @@
 
              function product_a_price() {
               var annualyprice=$("#aprice").val();
-              var regex = /^[0-9-+()]*$/;
+              var annuregex = /^([0-9]+\.[0-9]+$)|(^([0-9])+$)/;
                 if(annualyprice.length==''){
                 $(".ap").show();
                 $(".ap").focus();
                 $(".ap").html("** Please enter  annualy price");
                 $("#createproductbtn").hide();
-                } else if(!annualyprice.match(regex)){
+                $("#aprice").focus();
+                return false;
+                } else if(!annualyprice.match(annuregex)){
                 $(".ap").show();
                 $(".ap").focus();
-                $(".ap").html("** Please enter valid annualy price Ex: 120.00");
+                $(".ap").html("** Please enter valid annualy price Ex: 1200");
                 $("#createproductbtn").hide();
+                $("#aprice").focus();
+                return false;
                 } else {
                   $(".ap").hide();
                   sku_id_validate();
@@ -301,17 +343,21 @@
             });
             function sku_id_validate(){
               var skuid=$("#skuid").val();
-              var regex = /^[a-zA-Z0-9-+(#_)]*$/;
+              var skuregex = /^(([a-zA-Z0-9-#?]+)([a-zA-Z0-9]+))|(([a-zA-Z0-9-#?]+)([a-zA-Z0-9]+)([-#?]))+$/;
               if(skuid.length==''){
                 $(".sku").show();
                 $(".sku").focus();
                 $(".sku").html("** Please enter SKU ID");
                 $("#createproductbtn").hide();
-                } else if(!skuid.match(regex)){
+                $("#skuid").focus();
+                return false;
+                } else if(!skuid.match(skuregex)){
                 $(".sku").show();
                 $(".sku").focus();
-                $(".sku").html("** Please enter Valid SKU ID Ex: WINDOW#12");
+                $(".sku").html("** Please enter valid SKU ID Ex: WINDOW#12");
                 $("#createproductbtn").hide();
+                $("#skuid").focus();
+                return false;
                 } else {
                   $(".sku").hide();
                   sku_websp_validate();
@@ -323,19 +369,23 @@
               sku_websp_validate();
             });
 
-            function sku_websp_validate(){
+              function sku_websp_validate(){
               var webspace=$("#wspace").val();
-              var regex = /^[0-9-+(.)]*$/;
+              var webregex = /^([0-9]+\.[0-9]+$)|(^([0-9])+$)/;
               if(webspace.length==''){
                 $(".wsp").show();
                 $(".wsp").focus();
-                $(".wsp").html("** Please enter Web Space In MB");
+                $(".wsp").html("** Please enter webspace In MB");
                 $("#createproductbtn").hide();
-                } else if(!webspace.match(regex)){
+                $("#wspace").focus();
+                return false;
+                } else if(!webspace.match(webregex)){
                 $(".wsp").show();
                 $(".wsp").focus();
-                $(".wsp").html("** Please enter Valid web space Ex:12");
+                $(".wsp").html("** Please enter valid web space Ex:12.5");
                 $("#createproductbtn").hide();
+                $("#wspace").focus();
+                return false;
                 } else {
                   $(".wsp").hide();
                   bandwidth_validate();
@@ -349,17 +399,21 @@
 
             function bandwidth_validate(){
               var bandwidth=$("#bwidth").val();
-              var regex = /^[0-9-+(.)]*$/;
+              var bandwidthregx = /^([0-9]+\.[0-9]+$)|(^([0-9])+$)/;
               if(bandwidth.length==''){
                 $(".bw").show();
                 $(".bw").focus();
-                $(".bw").html("** Please enter bandWidth In MB");
+                $(".bw").html("** Please enter bandWidth in MB");
                 $("#createproductbtn").hide();
-                } else if(!bandwidth.match(regex)){
+                $("#bwidth").focus();
+                return false;
+                } else if(!bandwidth.match(bandwidthregx)){
                 $(".bw").show();
                 $(".bw").focus();
-                $(".bw").html("** Please enter Valid Bandwidth Ex:12");
+                $(".bw").html("** Please enter valid bandwidth Ex:12.9");
                 $("#createproductbtn").hide();
+                $("#bwidth").focus();
+                return false;
                 } else {
                   $(".bw").hide();
                   fd_validate();
@@ -374,17 +428,21 @@
 
             function fd_validate(){
               var freedomain=$("#fdomain").val();
-              var regex = /^[0-9-+()]*$/;
+              var fdregex = /^[0-9]*$/;
               if(freedomain.length==''){
                 $(".fd").show();
                 $(".fd").focus();
-                $(".fd").html("** Please enter Number of free domain");
+                $(".fd").html("** Please enter number of free domain");
                 $("#createproductbtn").hide();
-                } else if(!freedomain.match(regex)){
+                $("#fdomain").focus();
+                return false;
+                } else if(!freedomain.match(fdregex)){
                 $(".fd").show();
                 $(".fd").focus();
-                $(".fd").html("** Please enter Free Domain Ex: 2");
+                $(".fd").html("** Please enter free domain Ex: 2");
                 $("#createproductbtn").hide();
+                $("#fdomain").focus();
+                return false;
                 } else {
                   $(".fd").hide();
                   tech_validate();
@@ -398,17 +456,21 @@
 
             function tech_validate(){
               var technology=$("#technology").val();
-              var regex = /^[a-zA-Z,]*$/;
+              var techregex = /(^([a-zA-Z]+[0-9]+\,[a-zA-Z]+[0-9]+$))|(^([a-zA-Z]+[0-9]+\,[a-zA-Z]+$))|(^([a-zA-Z]+\,[a-zA-Z]+[0-9]+$))|(^([a-zA-Z]+\,[a-zA-Z]+$))|(^([a-zA-Z])+$)/;
               if(technology.length==''){
                 $(".tech").show();
                 $(".tech").focus();
-                $(".tech").html("** Please enter Technology name");
+                $(".tech").html("** Please enter technology name");
                 $("#createproductbtn").hide();
-                } else if(!technology.match(regex)){
+                $("#technology").focus();
+                return false;
+                } else if(!technology.match(techregex)){
                 $(".tech").show();
                 $(".tech").focus();
-                $(".tech").html("** Please enter Valid Technology Name Ex: JAVA,PHP ");
+                $(".tech").html("** Please enter valid technology Name Ex: JAVA,PHP ");
                 $("#createproductbtn").hide();
+                $("#technology").focus();
+                return false;
                 } else {
                   $(".tech").hide();
                   mail_validate();
@@ -421,39 +483,28 @@
             });
 
             function mail_validate(){
-              var technology=$("#mailbox").val();
-              var regex = /^[0-9]*$/;
-              if(technology.length==''){
+              var mailbox=$("#mailbox").val();
+              var mailregex = /^[0-9]*$/;
+              if(mailbox.length==''){
                 $(".mb").show();
                 $(".mb").focus();
-                $(".mb").html("** Please enter Number Of Mailbox");
+                $(".mb").html("** Please enter number of mailbox");
                 $("#createproductbtn").hide();
-                } else if(!technology.match(regex)){
+                $("#mailbox").focus();
+                return false;
+                } else if(!mailbox.match(mailregex)){
                 $(".mb").show();
                 $(".mb").focus();
                 $(".mb").html("** Please enter number only Ex: 2 ");
                 $("#createproductbtn").hide();
+                $("#mailbox").focus();
+                return false;
                 } else {
                   $(".mb").hide();
                   $("#createproductbtn").show();
                 }
             }
-             // product category validate 
-             $("#productcat").focusout(function(){
-                cat_validate();
-            });
-            function cat_validate(){
-              var pcat=$("#productcat").val();
-              if(pcat.length==''){
-                $(".pcat").show();
-                $(".pcat").focus();
-                $(".pcat").html("** Please Choose category ");
-                $("#createproductbtn").hide();
-                } else  {
-                  $(".pcat").hide();
-                  $("#createproductbtn").show();
-                }
-            }
+             
 
         
         $("#createproductbtn").on("click", function(e){
@@ -461,7 +512,7 @@
           e.preventDefault();
           var pcategory=$("#productcat").val();
           var productname=$("#productname").val();
-          var producturl=$("#purl").val();
+          var producturl=$("#producturl").val();
           var monthlyprice=$("#mprice").val();
           var annualyprice=$("#aprice").val();
           var skuid=$("#skuid").val();
@@ -479,13 +530,13 @@
            $(".mb").hide();
            $(".fd").hide();
            $(".sku").hide();
-          
-          if(pcategory==""||productname==''||monthlyprice==''||annualyprice==''||skuid==''||webspace==''||bandwidth==''||freedomain==''||technology==''||mailbox==''){
+           if((pcategory=="" || productname=="" || monthlyprice=='' || annualyprice=='' || skuid=='' || webspace=='' || bandwidth=='' || freedomain=='' || technology=='' || mailbox=='')){
+          if(pcategory==""){
             $("#productcat").focus();
             $(".pcat").show();
             cat_validate();
           } 
-           if (productname==''){
+          if (productname==""){
             $("#productname").focus();
             $(".pname").show();
           }
@@ -506,21 +557,22 @@
             $(".wsp").show();
           }
            if (bandwidth==''){
-            $("#bandwidth").focus();
+            $("#bwidth").focus();
             $(".bd").show();;
           } 
            if (freedomain==''){
-            $("#freedomail").focus();
+            $("#fdomain").focus();
             $(".fd").show();
           } 
            if (technology==''){
             $("#technology").focus();
             $(".tech").show();
           } 
-           if (mailbox==''){
+          if (mailbox==''){
             $("#mailbox").focus();
             $(".mb").show();
-          } else {
+           }  
+           }else{
                $.ajax({
                  url : "adminAction.php",
                  type : "POST",
@@ -529,17 +581,16 @@
                  success : function(data){
                    //console.log(data);
                    if(data==1){
-                     alert("Successfully Added Product");
+                     alert(" Product added successfully !!");
+                     location.reload();
                    }else{
                     $("#productcat").focus();
                     $(".pcat").show();
+                    alert(" Product not added successfully !!");
                    }
-                  
                  }
                })
-          }
-
-          //alert("i am add product button"+pcategory);
+           } 
         })
     })
   </script>

@@ -1,7 +1,18 @@
 <?php
-
+/**
+ * Templet File Doc Comment
+ * 
+ * PHP version /
+ * 
+ * @category Tenplete_Class
+ * @package  Templete_Class
+ * @author   Author <author@domain.com>
+ * @license  http://opensource.org/MIT MIT License
+ * @link     http://localhost/
+ */
 session_start();
-class User{
+class User
+{
     public $id;
     public $name;
     public $email;
@@ -15,8 +26,10 @@ class User{
 
     function userRegistration($name, $email, $mobile, $password, $squestion, $sanswer, $conn) 
     {
-        $query = "INSERT INTO tbl_user(`email`, `name`, `mobile`,`password`, `security_question`, `security_answer`) 
-        VALUES('{$email}','{$name}','{$mobile}', '{$password}', '{$squestion}', '{$sanswer}')";
+        $query = "INSERT INTO tbl_user(`email`, `name`, `mobile`,`password`,
+         `security_question`, `security_answer`) 
+        VALUES('{$email}','{$name}','{$mobile}', '{$password}', '{$squestion}',
+         '{$sanswer}')";
         if (mysqli_query($conn, $query)) {
             return 1;
         } else {
@@ -28,7 +41,8 @@ class User{
     function userLogin($email, $password, $conn)
     {
         $output=0;
-        $query = "SELECT * FROM tbl_user where `email` ='".$email."' AND `password` = '".$password."'"; 
+        $query = "SELECT * FROM tbl_user where `email` ='".$email."' 
+        AND `password` = '".$password."'"; 
         if ($result=mysqli_query($conn, $query)) {
             while ($row=mysqli_fetch_assoc($result)) {
                 if ($row['active']==1) {

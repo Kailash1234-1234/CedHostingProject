@@ -1,4 +1,16 @@
-<?php require_once 'header.php'; ?>
+<?php
+/**
+ * Templet File Doc Comment
+ * 
+ * PHP version /
+ * 
+ * @category Tenplete_Class
+ * @package  Templete_Class
+ * @author   Author <author@domain.com>
+ * @license  http://opensource.org/MIT MIT License
+ * @link     http://localhost/
+ */
+require_once 'header.php'; ?>
     <!-- Header -->
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
@@ -9,6 +21,7 @@
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
                   <li class="breadcrumb-item"><a href="#"><i class="ni ni-planet text-orange"></i></a></li>
                   <li class="breadcrumb-item"><a href="#">Products</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Add Catedory</li>
                 </ol>
               </nav>
             </div>
@@ -22,7 +35,7 @@
       </div>
     </div>
     <!-- Page content -->
-    <div class="container mt--8 pb-5">
+    <div class="container mt--6 pb-5">
       <!-- Table -->
       <div class="row justify-content-center">
         <div class="col-lg-6 col-md-8">
@@ -72,6 +85,7 @@
                     </div>
                     <!-- <input class="form-control" placeholder="Select category" type="text"> -->
                     <select name="availvility" id="available">
+                    <option value="">Select Availbility...</option>
                         <option value="0">Not Available</option>
                         <option value="1"> Available</option>
 
@@ -123,11 +137,11 @@
     <table id="example" class="display table" cellspacing="0">
     <thead>
         <tr class="bg-primary text-white">
-            <th>Id </th>
-            <th>Product Name</th>
-            <th>Link</th>
-            <th>Availbility</th>
-            <th>Product Luanch Date </th>
+            <th>S No.</th>
+            <th>Product Category Name</th>
+            <th>Page Link</th>
+            <th>Category Availbility</th>
+            <th>Product Category Luanch Date </th>
             <th>Action </th>
         </tr>
     </thead>
@@ -163,14 +177,14 @@
 
 //validation add product form
         // product name validate
-        $("#createcatbtn").hide();
+           $("#createcatbtn").hide();
            $(".pcat").hide();
            $(".pname").hide();
            $(".avail").hide();
-           var pname=$("#productname").val();
+            var pname=$("#productname").val();
             var purl=$("#producturl").val();
             var pavail=$("#available").val();
-           $("#productname").focusout(function() {
+            $("#productname").focusout(function() {
               product_name();
            })
            function product_name(){
@@ -179,48 +193,53 @@
             if(pname.length==''){
               $(".pname").show();
               $(".pname").focus();
-              $(".pname").html("** Please enter Product name");
+              $(".pname").html("** Please enter product category name");
               $("#createcatbtn").hide();
-              return false;
             } else if(!pname.match(ansletter)){
               $(".pname").show();
               $(".pname").focus();
-              $(".pname").html("** Please enter valid product name Ex: Windows hosting");
+              $(".pname").html("** Please enter valid product category name Ex: Windows hosting");
               $("#createcatbtn").hide();
             } else{
               $(".pname").hide();
-              $("#createcatbtn").show();
+            //  $("#createcatbtn").show();
             }
             } 
-            
-            $("#mprice").focusout(function() {
+
+            $("#available").focusout(function() {
               product_avil(); 
              })
 
             function product_avil() {
-                 var pavail=$("#available").val();
+                var pavail=$("#available").val();
                 var regex = /^[0-9-+()]*$/;
                 if(pavail.length==''){
                 $(".avail").show();
                 $(".avail").focus();
-                $(".avail").html("** Please Select Availbility");
-                $("#createproductbtn").hide();
+                $(".avail").html("** Please select availbility");
+                $("#createcatbtn").hide();
                 } else {
                   $(".avail").hide();
-                 
                   $("#createcatbtn").show();
                 }
                
             }
 
         $("#createcatbtn").on("click", function(e){
+        
             e.preventDefault();
           //  alert("hahaah i am add btn")
             var pname=$("#productname").val();
             var purl=$("#producturl").val();
             var pavail=$("#available").val();
             if(pname==""){
-                alert("product name required !!")
+              $(".pname").show();
+              $(".pname").focus();
+              $(".pname").html("** Please enter product category name ");
+            } else if(pavail=='') {
+                $(".avail").show();
+                $(".avail").focus();
+                $(".avail").html("** Please select availbility");
             } else {
                 $.ajax({
                     url : "adminAction.php",
@@ -229,7 +248,7 @@
                         pname:pname, purl:purl, pavail:pavail, action:"addcategory"
                     },
                     success : function(data){
-                       alert("successfully Added Category !!")
+                       alert("Category added  successfully !!")
                        $('#categoryform')[0].reset();
                        location.reload();
                     }
@@ -248,9 +267,9 @@
             var purl=$("#link1").val();
             var pavail=$("#available1").val();
             if(pname==""){
-              alert("Category Name Is required");
+              alert("Category name is required");
             } else if (pavail==''){
-              alert("please select  Availbility ");
+              alert("please select  availbility ");
             }
             $.ajax({
               url : "adminAction.php",
@@ -260,10 +279,10 @@
               success : function(data){
                
                 if(data==1){
-                  alert("success fully updated Category !!");
+                  alert("Category updated successfully  !!");
                   location.reload();
                 } else {
-                  alert("Not updated Some thing went wrong !!");
+                  alert("Not updated, some thing went wrong !!");
                 }
               }
             })

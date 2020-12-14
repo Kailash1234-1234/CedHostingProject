@@ -1,4 +1,22 @@
-<?php require_once 'header.php'; ?>
+<?php 
+/**
+ * Templet File Doc Comment
+ * 
+ * PHP version /
+ * 
+ * @category Tenplete_Class
+ * @package  Templete_Class
+ * @author   Author <author@domain.com>
+ * @license  http://opensource.org/MIT MIT License
+ * @link     http://localhost/
+ */
+require_once 'header.php'; 
+if (isset($_SESSION['email']) && isset($_SESSION['name'])) {
+    if (isset($_SESSION['is_admin'])==1) {
+
+    }
+}
+?>
     <!-- Header -->
     <div class="header bg-primary pb-6">
       <div class="container-fluid">
@@ -8,7 +26,8 @@
               <h6 class="h2 text-white d-inline-block mb-0">Default</h6>
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
+                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i>
+                  </a></li>
                   <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
                   <li class="breadcrumb-item active" aria-current="page">Default</li>
                 </ol>
@@ -27,17 +46,20 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">
+                      Total traffic</h5>
                       <span class="h2 font-weight-bold mb-0">350,897</span>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
+                      <div class="icon icon-shape bg-gradient-red text-white 
+                      rounded-circle shadow">
                         <i class="ni ni-active-40"></i>
                       </div>
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-success mr-2">
+                    <i class="fa fa-arrow-up"></i> 3.48%</span>
                     <span class="text-nowrap">Since last month</span>
                   </p>
                 </div>
@@ -49,17 +71,20 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">
+                      New users</h5>
                       <span class="h2 font-weight-bold mb-0">2,356</span>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">
+                      <div class="icon icon-shape bg-gradient-orange
+                       text-white rounded-circle shadow">
                         <i class="ni ni-chart-pie-35"></i>
                       </div>
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-success mr-2">
+                    <i class="fa fa-arrow-up"></i> 3.48%</span>
                     <span class="text-nowrap">Since last month</span>
                   </p>
                 </div>
@@ -71,17 +96,20 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">
+                      Sales</h5>
                       <span class="h2 font-weight-bold mb-0">924</span>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
+                      <div class="icon icon-shape bg-gradient-green
+                       text-white rounded-circle shadow">
                         <i class="ni ni-money-coins"></i>
                       </div>
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-success mr-2">
+                    <i class="fa fa-arrow-up"></i> 3.48%</span>
                     <span class="text-nowrap">Since last month</span>
                   </p>
                 </div>
@@ -93,17 +121,20 @@
                 <div class="card-body">
                   <div class="row">
                     <div class="col">
-                      <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
+                      <h5 class="card-title text-uppercase text-muted mb-0">
+                      Performance</h5>
                       <span class="h2 font-weight-bold mb-0">49,65%</span>
                     </div>
                     <div class="col-auto">
-                      <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
+                      <div class="icon icon-shape bg-gradient-info
+                       text-white rounded-circle shadow">
                         <i class="ni ni-chart-bar-32"></i>
                       </div>
                     </div>
                   </div>
                   <p class="mt-3 mb-0 text-sm">
-                    <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                    <span class="text-success mr-2">
+                    <i class="fa fa-arrow-up"></i> 3.48%</span>
                     <span class="text-nowrap">Since last month</span>
                   </p>
                 </div>
@@ -126,13 +157,20 @@
                 </div>
                 <div class="col">
                   <ul class="nav nav-pills justify-content-end">
-                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}' data-prefix="$" data-suffix="k">
-                      <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                    <li class="nav-item mr-2 mr-md-0" data-toggle="chart" 
+                    data-target="#chart-sales-dark" data-update='{"data":{"
+                    datasets":[{"data":[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}'
+                     data-prefix="$" data-suffix="k">
+                      <a href="#" class="nav-link py-2 px-3 active"
+                       data-toggle="tab">
                         <span class="d-none d-md-block">Month</span>
                         <span class="d-md-none">M</span>
                       </a>
                     </li>
-                    <li class="nav-item" data-toggle="chart" data-target="#chart-sales-dark" data-update='{"data":{"datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}' data-prefix="$" data-suffix="k">
+                    <li class="nav-item" data-toggle="chart"
+                     data-target="#chart-sales-dark" data-update='{"data":{"
+                       datasets":[{"data":[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}'
+                        data-prefix="$" data-suffix="k">
                       <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
                         <span class="d-none d-md-block">Week</span>
                         <span class="d-md-none">W</span>
@@ -305,7 +343,10 @@
                         <span class="mr-2">60%</span>
                         <div>
                           <div class="progress">
-                            <div class="progress-bar bg-gradient-danger" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div>
+                            <div class="progress-bar bg-gradient-danger"
+                             role="progressbar" 
+                            aria-valuenow="60" aria-valuemin="0"
+                             aria-valuemax="100" style="width: 60%;"></div>
                           </div>
                         </div>
                       </div>
@@ -323,7 +364,10 @@
                         <span class="mr-2">70%</span>
                         <div>
                           <div class="progress">
-                            <div class="progress-bar bg-gradient-success" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div>
+                            <div class="progress-bar bg-gradient-success" 
+                            role="progressbar" aria-valuenow="70" 
+                            aria-valuemin="0" aria-valuemax="100" 
+                            style="width: 70%;"></div>
                           </div>
                         </div>
                       </div>
@@ -341,7 +385,9 @@
                         <span class="mr-2">80%</span>
                         <div>
                           <div class="progress">
-                            <div class="progress-bar bg-gradient-primary" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%;"></div>
+                            <div class="progress-bar bg-gradient-primary"
+                             role="progressbar" aria-valuenow="80" aria-valuemin="0"
+                              aria-valuemax="100" style="width: 80%;"></div>
                           </div>
                         </div>
                       </div>
@@ -359,7 +405,10 @@
                         <span class="mr-2">75%</span>
                         <div>
                           <div class="progress">
-                            <div class="progress-bar bg-gradient-info" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%;"></div>
+                            <div class="progress-bar bg-gradient-info" 
+                            role="progressbar" 
+                            aria-valuenow="75" aria-valuemin="0" 
+                            aria-valuemax="100" style="width: 75%;"></div>
                           </div>
                         </div>
                       </div>
@@ -377,7 +426,9 @@
                         <span class="mr-2">30%</span>
                         <div>
                           <div class="progress">
-                            <div class="progress-bar bg-gradient-warning" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
+                            <div class="progress-bar bg-gradient-warning" 
+                            role="progressbar" aria-valuenow="30" aria-valuemin="0"
+                             aria-valuemax="100" style="width: 30%;"></div>
                           </div>
                         </div>
                       </div>

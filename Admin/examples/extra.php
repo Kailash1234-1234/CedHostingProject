@@ -1,4 +1,6 @@
-//validation add product form
+      <script>
+    
+      //validation add product form
         // product name validate
            $("#createproductbtn").hide();
            $(".pname").hide();
@@ -288,3 +290,14 @@
                 }
                
             }
+</script>
+<script>
+//mobile number regEx
+var mobile = (\+?1[-.(\s]?|\()?(9|8|7|6(0|4|5|6|7|8|3)\3+)[)\s]?[-.\s]?\d{4}[-.\s]?\d{5};
+productname=/(^([a-zA-Z]+\-[0-9]+$))|(^([a-zA-Z]+[0-9]+\-[0-9]+$))|(^([a-zA-Z]+[a-zA-Z0-9]+$))|(^([a-zA-Z])+$)/
+price=/^([0-9]+\.[0-9]+$)|(^([0-9])+$)/
+sku=/^(([a-zA-Z0-9-#?]+)([a-zA-Z0-9]+))|(([a-zA-Z0-9-#?]+)([a-zA-Z0-9]+)([-#?]))+$/
+bandwidth=/^([0-9]+\.[0-9]+$)|(^([0-9])+$)/
+language-tech=/(^([a-zA-Z]+[0-9]+\,[a-zA-Z]+[0-9]+$))|(^([a-zA-Z]+[0-9]+\,[a-zA-Z]+$))|(^([a-zA-Z]+\,[a-zA-Z]+[0-9]+$))|(^([a-zA-Z]+\,[a-zA-Z]+$))|(^([a-zA-Z])+$)/
+</script>
+          
