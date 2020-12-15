@@ -1,5 +1,18 @@
 <?php
 /**
+ * Templet File Doc Comment
+ * 
+ * PHP version /
+ * 
+ * @category Tenplete_Class
+ * @package  Templete_Class
+ * @author   Author <author@domain.com>
+ * @license  http://opensource.org/MIT MIT License
+ * @link     http://localhost/
+ */
+
+
+/**
  * Recipe class file
  *
  * PHP Version 5.2
@@ -10,8 +23,8 @@
  * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
  * @link     http://example.com/recipes
  */
-class Dbcon 
-{ 
+class Dbcon
+{
     public $dbhost;
     public $dbuser;
     public $dbpass;
@@ -24,6 +37,7 @@ class Dbcon
         $this->dbpass="";
         $this->dbname="CedHosting";
     }
+    
     function createConnection() 
     {
         $this->con=new mysqli($this->dbhost, $this->dbuser, $this->dbpass, $this->dbname);

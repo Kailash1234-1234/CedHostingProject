@@ -26,10 +26,12 @@ if (isset($_SESSION['email']) && isset($_SESSION['name'])) {
               
               <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
                 <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#">  <i class="ni ni-circle-08 text-blue"></i>
+                  <li class="breadcrumb-item"><a href="#">
+                      <i class="ni ni-circle-08 text-blue"></i>
                   </a></li>
                   <li class="breadcrumb-item"><a href="#">Users</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">View All Users List</li>
+                  <li class="breadcrumb-item active" aria-current="page">
+                    View All Users List</li>
                 </ol>
               </nav>
             </div>
@@ -80,7 +82,7 @@ if (isset($_SESSION['email']) && isset($_SESSION['name'])) {
       </div> 
     <!-- Page content -->
    <div class="container">
-   <?php require_once 'footer.php';?>    
+<?php require_once 'footer.php';?>    
    </div>
 
    <script>

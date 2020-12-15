@@ -46,9 +46,7 @@ require_once 'header.php';?>
               <h1 class="text-primary">Product Details</h1>
             </div>
             <div class="table-responsive">
-
-           
-                <table id="example" class="table table-responsive">
+                <table id="example" class="table">
                     <thead>
                         <tr class="bg-primary text-white">
                             <!-- <th>Id </th>
@@ -56,7 +54,6 @@ require_once 'header.php';?>
                             <th>S.No.</th>
                             <th>Product Category Name </th>
                             <th>Product Name</th>
-                            <th>Product page Link</th>
                             <th>Product Availbility Status</th>
                             <th>Product Webspace</th>
                             <th>Bandwidth</th>
@@ -672,16 +669,16 @@ require_once 'header.php';?>
               for(var i=0; i<data.length;i++){
                   //$("#productcat").val(data[i][0]);
                   $("#productname").val(data[i][2]);
-                  $("#producturl").val(data[i][3]);
-                  $("#mprice").val(data[i][10]);
-                  $("#aprice").val(data[i][11]);
-                  $("#skuid").val(data[i][12]);
-                  $("#wspace").val(data[i][5]);
-                  $("#bwidth").val(data[i][6]);
-                  $("#fdomain").val(data[i][7]);
-                  $("#technology").val(data[i][8]);
-                  $("#mailbox").val(data[i][9]);
-                  $("#createproductbtn").val(data[i][14]);
+                  $("#producturl").val(data[i][""]);
+                  $("#mprice").val(data[i][9]);
+                  $("#aprice").val(data[i][10]);
+                  $("#skuid").val(data[i][11]);
+                  $("#wspace").val(data[i][4]);
+                  $("#bwidth").val(data[i][5]);
+                  $("#fdomain").val(data[i][6]);
+                  $("#technology").val(data[i][7]);
+                  $("#mailbox").val(data[i][8]);
+                  $("#createproductbtn").val(data[i][13]);
               }
             }
           })

@@ -11,6 +11,17 @@
  * @link     http://localhost/
  */
 session_start();
+/**
+ * Recipe class file
+ *
+ * PHP Version 5.2
+ *
+ * @category Recipe
+ * @package  Recipe
+ * @author   Lorna Jane Mitchell <lorna@ibuildings.com>
+ * @license  http://opensource.org/licenses/gpl-license.php GNU Public License
+ * @link     http://example.com/recipes
+ */
 class User
 {
     public $id;
@@ -23,7 +34,21 @@ class User
     public $active;
     public $is_admin;
 
-
+    /**
+     * Display the cart
+     *
+     * @param query $name      comment
+     * @param query $email     comment
+     * @param query $mobile    comment
+     * @param query $password  comment
+     * @param query $squestion comment
+     * @param query $sanswer   comment
+     * @param query $conn      comment
+     *
+     * @return String
+     *
+     * @since 1.0.1
+     */
     function userRegistration($name, $email, $mobile, $password, $squestion, $sanswer, $conn) 
     {
         $query = "INSERT INTO tbl_user(`email`, `name`, `mobile`,`password`,
@@ -37,7 +62,17 @@ class User
         }
     
     }  
-    
+    /**
+     * Display the cart
+     *
+     * @param query $email    comment
+     * @param query $password comment
+     * @param query $conn     comment
+     *
+     * @return String
+     *
+     * @since 1.0.1
+     */
     function userLogin($email, $password, $conn)
     {
         $output=0;

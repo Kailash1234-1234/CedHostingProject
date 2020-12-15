@@ -248,7 +248,7 @@ require_once 'header.php'; ?>
                 } else  {
                   $(".pcat").hide();
                  // $("#createproductbtn").show();
-                  product_name();
+                 // product_name();
                 }
             }
 
@@ -274,7 +274,7 @@ require_once 'header.php'; ?>
               return false;
             } else{
               $(".pname").hide();
-              product_m_price();
+              //product_m_price();
               //$("#createproductbtn").show();
             }
             } 
@@ -302,7 +302,7 @@ require_once 'header.php'; ?>
                 return false;
                 } else {
                   $(".mp").hide();
-                  product_a_price();
+                  //product_a_price();
                  // $("#createproductbtn").show();
                 }
                
@@ -331,7 +331,7 @@ require_once 'header.php'; ?>
                 return false;
                 } else {
                   $(".ap").hide();
-                  sku_id_validate();
+                 // sku_id_validate();
                   //$("#createproductbtn").show();
                 }
             }
@@ -360,7 +360,7 @@ require_once 'header.php'; ?>
                 return false;
                 } else {
                   $(".sku").hide();
-                  sku_websp_validate();
+                  //sku_websp_validate();
                  // $("#createproductbtn").show();
                 }
             }
@@ -388,7 +388,7 @@ require_once 'header.php'; ?>
                 return false;
                 } else {
                   $(".wsp").hide();
-                  bandwidth_validate();
+                  //bandwidth_validate();
                   //$("#createproductbtn").show();
                 }
             }
@@ -416,7 +416,7 @@ require_once 'header.php'; ?>
                 return false;
                 } else {
                   $(".bw").hide();
-                  fd_validate();
+                  //fd_validate();
                  // $("#createproductbtn").show();
                 }
             }
@@ -445,7 +445,7 @@ require_once 'header.php'; ?>
                 return false;
                 } else {
                   $(".fd").hide();
-                  tech_validate();
+                 // tech_validate();
                  // $("#createproductbtn").show();
                 }
             }
@@ -473,7 +473,7 @@ require_once 'header.php'; ?>
                 return false;
                 } else {
                   $(".tech").hide();
-                  mail_validate();
+                  //mail_validate();
                  // $("#createproductbtn").show();
                 }
             }

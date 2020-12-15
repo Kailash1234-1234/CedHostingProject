@@ -78,21 +78,21 @@ require_once 'header.php'; ?>
                     <input class="form-control" placeholder="URL (Optional)" type="text" id=producturl>
                   </div>
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <!-- <input class="form-control" placeholder="Select category" type="text"> -->
-                    <select name="availvility" id="available">
+                     <input class="form-control" placeholder="Select category" type="text"> -->
+                    <!-- <select name="availvility" id="available">
                     <option value="">Select Availbility...</option>
                         <option value="0">Not Available</option>
                         <option value="1"> Available</option>
 
-                    </select>
-                  </div>
+                    </select> -->
+                  <!-- </div>
                   <span class="avail" >invalid cridentials</span>
-                </div>
+                </div> --> 
                 <div class="text-center">
                   <button type="button" class="btn btn-primary mt-4" id="createcatbtn">Create Category</button>
                 </div>
@@ -138,6 +138,7 @@ require_once 'header.php'; ?>
     <thead>
         <tr class="bg-primary text-white">
             <th>S No.</th>
+            <th>Parent Category Name</th>
             <th>Product Category Name</th>
             <th>Page Link</th>
             <th>Category Availbility</th>
@@ -202,28 +203,28 @@ require_once 'header.php'; ?>
               $("#createcatbtn").hide();
             } else{
               $(".pname").hide();
-            //  $("#createcatbtn").show();
+              $("#createcatbtn").show();
             }
             } 
 
-            $("#available").focusout(function() {
-              product_avil(); 
-             })
+            // $("#available").focusout(function() {
+            //   product_avil(); 
+            //  })
 
-            function product_avil() {
-                var pavail=$("#available").val();
-                var regex = /^[0-9-+()]*$/;
-                if(pavail.length==''){
-                $(".avail").show();
-                $(".avail").focus();
-                $(".avail").html("** Please select availbility");
-                $("#createcatbtn").hide();
-                } else {
-                  $(".avail").hide();
-                  $("#createcatbtn").show();
-                }
+            // function product_avil() {
+            //     var pavail=$("#available").val();
+            //     var regex = /^[0-9-+()]*$/;
+            //     if(pavail.length==''){
+            //     $(".avail").show();
+            //     $(".avail").focus();
+            //     $(".avail").html("** Please select availbility");
+            //     $("#createcatbtn").hide();
+            //     } else {
+            //       $(".avail").hide();
+            //       $("#createcatbtn").show();
+            //     }
                
-            }
+            // }
 
         $("#createcatbtn").on("click", function(e){
         
@@ -317,7 +318,7 @@ require_once 'header.php'; ?>
                     '<div class="input-group-prepend">'+
                      ' <span class="input-group-text"><i class="ni ni-email-83"></i></span>'+
                    '</div>'+
-                    '<input class="form-control" type="text" id="link1" value="'+data['link']+'" >'+
+                    '<input class="form-control" type="text" id="link1" value="'+data['html']+'" >'+
                   '</div>'+                                                                             
                 '</div>'+
                 '<div class="form-group">'+
