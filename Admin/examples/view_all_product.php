@@ -108,7 +108,24 @@ require_once 'header.php';?>
                       <span class="input-group-text"><i class='fas fa-cloud'></i></span>
                     </div>
                     <select name="availvility" id="productcat">
-                       
+                       <script>
+                        function loadcat(){
+                          $.ajax({
+                            url : "adminAction.php",
+                            type : "POST",
+                            data : {action:"fetchalldatanav"},
+                            dataType: "json",
+                            success : function(data){
+                                var html='<option value="">Chose Cetegory Here..</option>';
+                                for(var i=0;i<data.length;i++){
+                                  html+= '<option selected value="'+data[i][0]+'">'+data[i][1]+'</option>';
+                                }
+                                $("#productcat").html(html);
+                            }
+                          })
+                        }
+                      loadcat();
+                       </script>
                     </select>
                   </div>
                   <span class="pcat"> Please choose product category</span>
@@ -129,7 +146,7 @@ require_once 'header.php';?>
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class='fas fa-cookie'></i></span>
                     </div>
-                    <input class="form-control" placeholder="Product Name" type="text" id='producturl'>
+                    <input class="form-control" placeholder="Page Url (Optional)" type="text" id='producturl'>
                   </div>
                   <!-- <span class="purl" >invalid product name</span> -->
                 </div>
@@ -622,7 +639,7 @@ require_once 'header.php';?>
                  data : {eid:btnid, pcategory:pcategory, productname:productname,producturl:producturl,monthlyprice:monthlyprice,annualyprice:annualyprice,skuid:skuid,webspace:webspace,bandwidth:bandwidth,freedomain:freedomain,technology:technology,mailbox:mailbox,action:"updateproduct"},
                  dataType : "json",
                  success : function(data){
-                  //alert(data);
+                  alert(data);
                    if(data==1){
                      alert(" Product details updated successfully !!");
                      location.reload();
@@ -638,22 +655,22 @@ require_once 'header.php';?>
 
 
 
-        function loadcat(){
-        $.ajax({
-          url : "adminAction.php",
-          type : "POST",
-          data : {action:"fetchalldatanav"},
-          dataType: "json",
-          success : function(data){
-              var html='<option value="">Chose Cetegory Here..</option>';
-              for(var i=0;i<data.length;i++){
-                html+= '<option value="'+data[i][0]+'">'+data[i][1]+'</option>';
-              }
-              $("#productcat").html(html);
-          }
-        })
-        }
-        loadcat();
+        // function loadcat(){
+        // $.ajax({
+        //   url : "adminAction.php",
+        //   type : "POST",
+        //   data : {action:"fetchalldatanav"},
+        //   dataType: "json",
+        //   success : function(data){
+        //       var html='<option value="">Chose Cetegory Here..</option>';
+        //       for(var i=0;i<data.length;i++){
+        //         html+= '<option value="'+data[i][0]+'">'+data[i][1]+'</option>';
+        //       }
+        //       $("#productcat").html(html);
+        //   }
+        // })
+        // }
+        // loadcat();
        $(document).on("click",".editbtn", function(e){
           e.preventDefault();
           

@@ -86,7 +86,7 @@ if (isset($_GET['id'])) {
                             <img src="images/india.png"></li>
                             </ul>
                         </div>
-                        <a href="#">buy now</a>
+                        <a href="#" class="catbtn" data-catid="<?php echo $prodesc[12]; ?>">buy now</a>
                     </div>
                 <?php }; ?>
                     <div class="clearfix"></div>
@@ -204,8 +204,11 @@ if (isset($_GET['id'])) {
 <script>
     
  
-//    $(document).ready(function(){
-//        // alert(id);
+   $(document).ready(function(){
+      $(".catbtn").on("click", function(){
+          var catid= $(this).data("catid");
+          alert(catid)
+      })
 
-//    })
+   })
 </script>

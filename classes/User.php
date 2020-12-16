@@ -101,6 +101,21 @@ class User
         } 
         return $output;
     }
+
+
+    /**
+     * Display the cart
+     *
+     * @param query $conn comment
+     *
+     * @return String
+     *
+     * @since 1.0.1
+     */
+    function fetchallusersdata($conn)
+    {
+        echo "hello";
+    }
     
 }
 

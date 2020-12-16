@@ -79,14 +79,27 @@ require_once 'header.php'; ?>
                   </div>
                   <span class="pname" >invalid product name</span>
                 </div>
+                <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+
+                  <script>
+                    tinymce.init({
+                      selector: 'textarea#producturl',
+                      menubar: false
+                    });
+                  </script>
                 <div class="form-group">
                 <label for="available">Page URL</label>
-                  <div class="input-group input-group-merge input-group-alternative mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class='fas fa-cookie'></i></span>
-                    </div>
-                    <input class="form-control" placeholder="http:www.google.com" type="text" id="producturl">
-                  </div>
+                <textarea id="producturl"></textarea>
+                 
+                <script>
+                  tinymce.init({
+                    selector: 'textarea#producturl',
+                    skin: 'bootstrap',
+                    plugins: 'lists, link, image, media',
+                    toolbar: 'h1 h2 bold italic strikethrough blockquote bullist numlist backcolor | link image media | removeformat help',
+                    menubar: false
+                  });
+                </script>
                   <!-- <span class="purl" >invalid product name</span> -->
                 </div>
 

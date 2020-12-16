@@ -56,19 +56,18 @@ class Product
     /**
      * Display the cart
      *
-     * @param query $pname  comment
-     * @param query $purl   comment
-     * @param query $pavail comment
-     * @param query $conn   comment
+     * @param query $pname comment
+     * @param query $purl  comment
+     * @param query $conn  comment
      *
      * @return String
      *
      * @since 1.0.1
      */
-    function addproductcategory($pname, $purl, $pavail, $conn)
+    function addproductcategory($pname, $purl, $conn)
     {
         $query = "INSERT INTO `tbl_product`(`prod_parent_id`, `prod_name`, `html`, `prod_available`, `prod_launch_date`) 
-        VALUES('1', '{$pname}', '{$purl}', '{$pavail}', NOW())";
+        VALUES('1', '{$pname}', '{$purl}', 1, NOW())";
         if (mysqli_query($conn, $query) or die(print_r($conn))) {
             return 1;
         } else {
@@ -353,16 +352,16 @@ class Product
      */
     function updateNewProduct($updateid, $cid, $productname, $producturl, $monthlyprice, $annualyprice, $skuid, $product_desc_json, $conn)
     {
-        $sql= "UPDATE `tbl_product` SET `prod_name`='$productname', WHERE `id` ='$updateid'";
-        if ($conn->query($sql) === true) {
+        $sql= "UPDATE `tbl_product` SET `prod_name`='$productname' WHERE `id`='$updateid'";
+        if (mysqli_query($conn, $sql) or die(print_r($conn))) {
             $sql2="UPDATE `tbl_product_description` SET `description`='$product_desc_json',`mon_price`='$monthlyprice',`annual_price`='$annualyprice',`sku`='$skuid' WHERE `prod_id` ='$updateid'";
-            if ($conn->query($sql2) === true) {
+            if ($conn->query($sql2) == true) {
                 return 1;
             } else {
                 return "Error updating record: " . $this->conn->error;
             }
         } else {
-            return "Error updating record: " . $this->conn->error;
+            return "Error updating11 record: " . $this->conn->error;
         }
     }
     //fetch all data product

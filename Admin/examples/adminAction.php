@@ -27,8 +27,7 @@ case "fetchcat":
 case "addcategory":
       $pname=$_POST['pname'];
       $purl= $_POST['purl'];
-      $pavail=$_POST['pavail'];
-      echo $addcategory ->addproductcategory($pname, $purl, $pavail, $conn);
+      echo $addcategory ->addproductcategory($pname, $purl, $conn);
     break;
 case "fetchalldata":
       $addcategory ->fetchdata($conn);
@@ -99,7 +98,7 @@ case "updateproduct":
         "mailbox" => $mailbox);
       $product_desc_json=json_encode($product_desc);
       echo $result = $addcategory->updateNewProduct($updateid, $cid, $productname, $producturl, $monthlyprice, $annualyprice, $skuid, $product_desc_json, $conn);
-      //echo ($updateid.$cid.$productname.$producturl.$monthlyprice.$annualyprice.$skuid.$product_desc_json);
+     // echo ($updateid.$cid.$productname.$producturl.$monthlyprice.$annualyprice.$skuid.$product_desc_json);
     break;
 }
 ?>

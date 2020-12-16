@@ -19,9 +19,12 @@ if($menu="login"); ?>
     <div class="main-1">
         <div class="container">
             <div class="register">
+           
                 <form> 
                  <div class="register-top-grid">
+                    
                     <h3>personal information</h3>
+                    <span style="color:red; font-size:15px"><strong>Note :</strong> all fields are required (*)</span>
                      <div>
                         <span> Name<label>*</label></span>
                         <input type="text" id="name"> 
@@ -82,6 +85,7 @@ if($menu="login"); ?>
                 <div class="clearfix"> </div>
                 <div class="register-but">
                    <form>
+                   
                        <input type="submit" value="submit" id="register">
                        <div class="clearfix"> </div>
                    </form>
@@ -128,10 +132,11 @@ $(document).ready(function(){
         var pattern = /^(0|[+91]{3})?[7-9][0-9]{9}$/;
         //var pattemail = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
         var pattemail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        var pattpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/;
+        var pattpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,10}$/;
         var intRegexpass = /[0-9 -()+]+$/; 
         if(name=="" || email=="" || mobile==""  || password=="" || cpassword=="" || squestion=="" || sanswer==""){
             alert("all fields are required !!")
+            
             return false;
         } else  if(!(name.match(letter))) {
                 alert("Enter Valid Name");
@@ -147,7 +152,7 @@ $(document).ready(function(){
                 return false;
             
         } else if (!(password.match(pattpass))) {
-                alert("Enter Strong Password");
+                alert("Enter Strong Password Ex: ABCD123@123");
                 return false;
         } else if(password != cpassword) {
                 alert("Password mismstch !!");

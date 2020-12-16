@@ -140,7 +140,7 @@ require_once 'header.php'; ?>
             <th>S No.</th>
             <th>Parent Category Name</th>
             <th>Product Category Name</th>
-            <th>Page Link</th>
+            <!-- <th>Page Link</th> -->
             <th>Category Availbility</th>
             <th>Product Category Luanch Date </th>
             <th>Action </th>
@@ -184,7 +184,7 @@ require_once 'header.php'; ?>
            $(".avail").hide();
             var pname=$("#productname").val();
             var purl=$("#producturl").val();
-            var pavail=$("#available").val();
+            // var pavail=$("#available").val();
             $("#productname").focusout(function() {
               product_name();
            })
@@ -232,21 +232,17 @@ require_once 'header.php'; ?>
           //  alert("hahaah i am add btn")
             var pname=$("#productname").val();
             var purl=$("#producturl").val();
-            var pavail=$("#available").val();
+            // var pavail=$("#available").val();
             if(pname==""){
               $(".pname").show();
               $(".pname").focus();
               $(".pname").html("** Please enter product category name ");
-            } else if(pavail=='') {
-                $(".avail").show();
-                $(".avail").focus();
-                $(".avail").html("** Please select availbility");
             } else {
                 $.ajax({
                     url : "adminAction.php",
                     type : "POST",
                     data : {
-                        pname:pname, purl:purl, pavail:pavail, action:"addcategory"
+                        pname:pname, purl:purl, action:"addcategory"
                     },
                     success : function(data){
                        alert("Category added  successfully !!")
@@ -318,7 +314,7 @@ require_once 'header.php'; ?>
                     '<div class="input-group-prepend">'+
                      ' <span class="input-group-text"><i class="ni ni-email-83"></i></span>'+
                    '</div>'+
-                    '<input class="form-control" type="text" id="link1" value="'+data['html']+'" >'+
+                    '<input class="form-control" type="text" id="link1" placeholder="Add Url" value="" >'+
                   '</div>'+                                                                             
                 '</div>'+
                 '<div class="form-group">'+
